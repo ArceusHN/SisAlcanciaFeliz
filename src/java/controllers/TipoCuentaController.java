@@ -13,17 +13,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Usuarios;
-import modelDAO.RolPantallasDAO;
-import modelDAO.UsuariosDAO;
 
 /**
  *
  * @author Omar Fer
  */
-@WebServlet(name = "AccessController", urlPatterns = {"/AccessController"})
-public class AccessController extends HttpServlet {
-    String Login = "Access/Login.jsp", Index = "index.jsp";
+@WebServlet(name = "TipoCuentaController", urlPatterns = {"/TipoCuentaController"})
+public class TipoCuentaController extends HttpServlet {
+    String listar = "views/TipoCuenta.jsp";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,10 +39,10 @@ public class AccessController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AccessController</title>");            
+            out.println("<title>Servlet TipoCuentaController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AccessController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet TipoCuentaController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,7 +60,17 @@ public class AccessController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String acceso = "";
+        String accion = request.getParameter("accion");
+        if(accion.equalsIgnoreCase("Listar Tipo de Cuentas")){
+            acceso = listar;
+        }
+        //INVESTIGAR QUE HACE ADEMAS DE REEDIRIGIR
+        RequestDispatcher vista = request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
+        
+        //processRequest(request, response);
     }
 
     /**
@@ -76,36 +84,7 @@ public class AccessController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String usuario = request.getParameter("txtUsuario"),
-                contra = request.getParameter("txtContra");
-        
-        try{
-            UsuariosDAO UsuDao = new UsuariosDAO();
-            RolPantallasDAO RolPanDao = new RolPantallasDAO();
-            Usuarios usuLogin = UsuDao.login(usuario, contra);
-            
-            String pantallas = RolPanDao.listarxRol(usuLogin.getRol_Id());
-            
-            if( usuLogin != null){
-                request.getSession().setAttribute("CURRENT USER", usuLogin);
-                request.getSession().setAttribute("Pantallas", pantallas);
-                
-                
-                response.sendRedirect(Index);
-                
-            }else{
-                request.setAttribute("err", "Usuario o contraseña incorrectos");
-                response.sendRedirect(Login);
-            }
-                
-        }
-        catch(Exception e){
-            //request.setAttribute("err", "System error" + e.getMessage());
-            //RequestDispatcher vista = request.getRequestDispatcher(Login);
-            //vista.forward(request, response);
-        }
-        
+        processRequest(request, response);
     }
 
     /**

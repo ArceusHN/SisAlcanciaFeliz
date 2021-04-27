@@ -17,6 +17,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Usuarios;
 
 /**
  *
@@ -102,17 +103,27 @@ public class AuthorizationFilter implements Filter {
         
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        Usuarios usu = (Usuarios) session.getAttribute("CURRENT USER");
+        
+        String accion = request.getParameter("accion");
+        
+        if(req.getRequestURI().endsWith("AccessController") ) chain.doFilter(request, response);
         
         if(session.getAttribute("CURRENT USER") == null && !req.getRequestURI().endsWith("Access/Login.jsp")){
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
             httpResponse.sendRedirect(req.getContextPath() + "/Access/Login.jsp");            
         }
-        else{
+        else if(accion != null && usu.getRol_Id() != 1 ){
+            String pantallas = (String) session.getAttribute("Pantallas");
             
-            //
+            if(pantallas.contains(accion)) chain.doFilter(request, response);
+            else httpResponse.sendRedirect(req.getContextPath() + "/views/Sinacceso.jsp");
+        }
+        else{
             chain.doFilter(request, response);
         }
-    }
+        }
 
     /**
      * Return the filter configuration object for this filter.
