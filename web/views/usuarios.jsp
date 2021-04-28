@@ -10,7 +10,7 @@
 <%@page import="modelDAO.UsuariosDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         
-        <jsp:include page="./shared/header.html"></jsp:include>
+        <jsp:include page="./shared/header.jsp"></jsp:include>
         
         <h3>Usuarios</h3>
         <table class="table table-bordered">
@@ -47,4 +47,4 @@
         </table>
     
 
-        <jsp:include page="./shared/footer.html"></jsp:include>
+        <jsp:include page="./shared/footer.jsp"></jsp:include>

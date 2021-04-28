@@ -13,7 +13,7 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../SisAlcanciaFeliz/assets/css/estilo.css" />
+    <link rel="stylesheet" href="http://localhost:8080/SisAlcanciaFeliz/assets/css/estilo.css" type="text/css" />
     <title>Iniciar Sesión y Formulario de Registro</title>
   </head>
   <body>

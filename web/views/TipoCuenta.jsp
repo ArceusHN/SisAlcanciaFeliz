@@ -10,7 +10,7 @@
 <%@page import="modelDAO.TipoCuentasDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-    <jsp:include page="./shared/header.html"></jsp:include>
+    <jsp:include page="./shared/header.jsp"></jsp:include>
  
     <div width="100%" style="text-align: center">
         <h2>Tipos de cuenta</h2>
@@ -48,4 +48,4 @@
             </tbody>
         </table>
                                        
-   <jsp:include page="./shared/footer.html"></jsp:include>
+   <jsp:include page="./shared/footer.jsp"></jsp:include>

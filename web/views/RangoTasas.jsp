@@ -13,7 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-    <jsp:include page="./shared/header.html"></jsp:include>
+    <jsp:include page="./shared/header.jsp"></jsp:include>
     
     <h2>Tasas de prestamo</h2>
    <table><table class="table table-bordered">
@@ -57,4 +57,4 @@
             </table>
    
                                        
-   <jsp:include page="./shared/footer.html"></jsp:include>
+   <jsp:include page="./shared/footer.jsp"></jsp:include>

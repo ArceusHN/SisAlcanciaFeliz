@@ -23,7 +23,7 @@ import modelDAO.UsuariosDAO;
  */
 @WebServlet(name = "AccessController", urlPatterns = {"/AccessController"})
 public class AccessController extends HttpServlet {
-    String Login = "Access/Login.jsp", Index = "index.jsp";
+    String Login = "Access/Login.jsp", Index = "views/index.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

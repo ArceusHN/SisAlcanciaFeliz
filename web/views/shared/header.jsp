@@ -1,3 +1,10 @@
+<%-- 
+    Document   : header.jsp
+    Created on : 04-28-2021, 12:53:21 AM
+    Author     : Omar Fer
+--%>
+
+<%@page import="model.Usuarios"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,7 +122,7 @@
             <ul class="metismenu" id="side-menu">
               <li class="menu-title">Main</li>
               <li>
-                <a href="http://localhost:8080/SisAlcanciaFeliz/index.jsp" class="waves-effect">
+                <a href="http://localhost:8080/SisAlcanciaFeliz/views/index.jsp" class="waves-effect">
                   <i class="mdi mdi-home"></i
                   ><span class="badge badge-primary float-right"></span>
                   <span> Inicio </span>

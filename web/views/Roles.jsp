@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
- <jsp:include page="./shared/header.html"></jsp:include>
+ <jsp:include page="./shared/header.jsp"></jsp:include>
  
     <div width="100%" style="text-align: center">
         <h1>Roles</h1>
@@ -43,4 +43,4 @@
             </tbody>
         </table>
 
-        <jsp:include page="./shared/footer.html"></jsp:include>
+        <jsp:include page="./shared/footer.jsp"></jsp:include>
