@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.io.InputStream;
+
 /**
  *
  * @author DELL
@@ -13,7 +15,22 @@ public class Empleados {
     int emp_Id;
     
     String emp_Foto,emp_Identidad,emp_Nombre,emp_FechaNac,emp_FechaIngreso,emp_Telefono,emp_Sexo,emp_Ec,emp_Direccion,
-            emp_Cargo,Sucursal,Usuario_Crea,Fecha_Crea,Usuario_Modifica,Fecha_Modifica;
+            emp_Cargo,Sucursal,Usuario_Crea,Fecha_Crea,Usuario_Modifica,Fecha_Modifica,emp_PrimerNombre,emp_SegundoNombre,
+            emp_PrimerApellido,emp_SegundoApellido;
+
+    public InputStream getEmp_Fot() {
+        return emp_Fot;
+    }
+
+    public void setEmp_Fot(InputStream emp_Fot) {
+        this.emp_Fot = emp_Fot;
+    }
+    
+    InputStream  emp_Fot;
+
+    
+
+    
      public Empleados(){}
     
     
@@ -35,6 +52,38 @@ public class Empleados {
         this.Fecha_Crea=Fecha_Crea;
         this.Usuario_Modifica=Usuario_Modifica;
         this.Fecha_Modifica=Fecha_Modifica;
+    }
+
+    public String getEmp_PrimerNombre() {
+        return emp_PrimerNombre;
+    }
+
+    public void setEmp_PrimerNombre(String emp_PrimerNombre) {
+        this.emp_PrimerNombre = emp_PrimerNombre;
+    }
+
+    public String getEmp_SegundoNombre() {
+        return emp_SegundoNombre;
+    }
+
+    public void setEmp_SegundoNombre(String emp_SegundoNombre) {
+        this.emp_SegundoNombre = emp_SegundoNombre;
+    }
+
+    public String getEmp_PrimerApellido() {
+        return emp_PrimerApellido;
+    }
+
+    public void setEmp_PrimerApellido(String emp_PrimerApellido) {
+        this.emp_PrimerApellido = emp_PrimerApellido;
+    }
+
+    public String getEmp_SegundoApellido() {
+        return emp_SegundoApellido;
+    }
+
+    public void setEmp_SegundoApellido(String emp_SegundoApellido) {
+        this.emp_SegundoApellido = emp_SegundoApellido;
     }
 
     

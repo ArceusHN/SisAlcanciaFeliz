@@ -11,9 +11,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<jsp:include page="./shared/header.jsp"></jsp:include>
+<jsp:include page="../shared/header.jsp"></jsp:include>
 
         <h2>Clientes</h2>
+        <br>
+        <a href="ClientesController?accion=Crear Clientes" class="btn btn-success m-b-10">Crear</a>
+        <br>
         <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -60,5 +63,5 @@
                     </tbody>
         </table>
 
-<jsp:include page="./shared/footer.jsp"></jsp:include>
+<jsp:include page="../shared/footer.jsp"></jsp:include>
 

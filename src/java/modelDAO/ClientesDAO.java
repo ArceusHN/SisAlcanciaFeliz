@@ -70,9 +70,22 @@ public class ClientesDAO implements ClientesCRUD{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+     @Override
     public boolean add(Cliente ci) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "EXEC UDP_tbClientes_Insert '" + ci.getCli_Identidad() + "', '" + ci.getCli_PrimerNombre() + "', '" + ci.getCli_SegundoNombre() + "', '"  + ci.getCli_PrimerApellido() + "', '" + ci.getCli_SegundoApellido() + "', '" + ci.getCli_FechaNac() + "', '" + ci.getCli_FechaIngreso() + "', '" + ci.getCli_Telefono() + "', '" + ci.getCli_Sexo() + "', '" + ci.getEsciv_Id() + "', '" + ci.getDirec_Id() + "', '" + ci.getUsu_Crea() + "'";
+        try
+        {
+            con = cn.getConnection();
+                  ps = con.prepareStatement(sql);
+                  ps.executeUpdate();
+        }
+        catch(Exception e)
+        {
+
+        }
+
+        return false;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

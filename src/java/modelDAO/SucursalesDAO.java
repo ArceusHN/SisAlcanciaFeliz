@@ -61,7 +61,20 @@ public class SucursalesDAO implements SucursalesCRUD {
 
     @Override
     public boolean add(Sucursales sc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String sql ="EXEC UDP_Sucursales_Insert '"+sc.getSuc_Descripcion()+"', '"+sc.getSuc_Telefono()+"', '"+sc.getDirec_Descripcion()+"'";
+        try
+        {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            
+            ps.executeUpdate();
+        }
+        catch(Exception e)
+        {
+        }
+        
+        return false;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

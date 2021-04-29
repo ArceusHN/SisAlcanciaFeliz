@@ -37,6 +37,13 @@
     />
     <link href="../../SisAlcanciaFeliz/assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="../../SisAlcanciaFeliz/assets/css/style.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+     <!-- jQuery  -->
+    <script src="../../SisAlcanciaFeliz/assets/js/jquery.min.js"></script> 
+    <script src="../../SisAlcanciaFeliz/assets/js/bootstrap.bundle.min.js"></script>
+    
   </head>
 
   <body> 
@@ -128,7 +135,11 @@
                   <span> Inicio </span>
                 </a>
               </li>
-
+              <% 
+                String pantallas = session.getAttribute("Pantallas").toString();
+                  
+                if( pantallas.contains("Listar Roles") || pantallas.contains("Listar Usuarios") ){
+              %>
               <li>
                 <a href="javascript:void(0);" class="waves-effect"
                   ><i class="mdi mdi-security"></i
@@ -139,15 +150,30 @@
                     ></span> </span
                 ></a>
                 <ul class="submenu">
+                   <% 
+                        if( pantallas.contains("Listar Roles") ) {
+                   %>
                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Roles.jsp">
                           Roles</a></li>
-                          <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/usuarios.jsp">
-                              Usuarios
-                              </a></li>
-                  
+                    <% } %>
+                          
+                   <% 
+                        if( pantallas.contains("Listar Usuarios") ) {
+                   %>    
+                 <li><a href="http://localhost:8080/SisAlcanciaFeliz/UsuariosController?accion=Listar Usuarios">
+                          Usuarios</a></li>
+                  <% } %>
                 </ul>
               </li>
-
+              <% } %>
+              
+              <% 
+                  
+                if( pantallas.contains("Listar Cargos") || pantallas.contains("Listar Clientes") ||
+                    pantallas.contains("Listar Direcciones") || pantallas.contains("Listar Empleados") ||
+                    pantallas.contains("Listar Sucursales") || pantallas.contains("Listar Tipo de Transacciones") ||
+                    pantallas.contains("Listar Tipo de Cuentas") ){
+              %>
               <li>
                 <a href="javascript:void(0);" class="waves-effect"
                   ><i class="mdi mdi-hammer"></i>
@@ -159,29 +185,70 @@
                   </span>
                 </a>
                 <ul class="submenu">
-                  <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Cargos.jsp">
-                          Cargos</a></li>
-                  <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Clientes.jsp">
+                  <% 
+                        if( pantallas.contains("Listar Cargos") ) {
+                   %>
+                  <li><a href="http://localhost:8080/SisAlcanciaFeliz/CargosController?accion=Listar Cargos">
+                          Cargos</a></li>  
+                  <% } %>     
+                     
+                  
+                  <% 
+                        if( pantallas.contains("Listar Clientes") ) {
+                   %>
+                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/ClientesController?accion=Listar Clientes">
                           Clientes</a></li>
+                          
+                    <% } %>          
+                          
+                   <% 
+                        if( pantallas.contains("Listar Direcciones") ) {
+                   %>
                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Direcciones.jsp">
                           Direcciones</a></li>
-                  
-                  <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Empleados.jsp">
-                          Empleados</a></li>
-                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Sucursales.jsp">
-                          Sucursales</a></li>   
+                   <% } %>       
                           
+                  <% 
+                        if( pantallas.contains("Listar Empleados") ) {
+                   %>
+                  <li><a href="http://localhost:8080/SisAlcanciaFeliz/EmpleadoController?accion=Listar Empleados">
+                          Empleados</a></li>
+                   <% } %>   
+                          
+                   <% 
+                        if( pantallas.contains("Listar Sucursales") ) {
+                   %>
+                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/SucursalesController?accion=Listar Sucursales">
+                          Sucursales</a></li>   
+                    <% } %>  
+                    
+                   <% 
+                        if( pantallas.contains("Listar Tipo de Transacciones") ) {
+                   %>
                   <li>
                       <a href="http://localhost:8080/SisAlcanciaFeliz/views/TipoTransacciones.jsp">
                           Tipo de transacciones</a>
                   </li>
+                  <% } %>  
+                  
+                   <% 
+                        if( pantallas.contains("Listar Tipo de Cuentas") ) {
+                   %>
                   <li>
-                      <a href="TipoCuentaController?accion=Listar Tipo de Cuentas">
+                      <a href="http://localhost:8080/SisAlcanciaFeliz/TipoCuentaController?accion=Listar Tipo de Cuentas">
                           Tipo de cuentas</a>
                   </li>
+                  <% } %>  
+                  
                 </ul>
               </li>
-
+              
+              <% } %>
+              
+               <%     
+                if( pantallas.contains("Listar Rango de Tasas") || pantallas.contains("Listar Cuentas") ||
+                    pantallas.contains("Listar Prestamos") || pantallas.contains("Listar Transacciones")){
+              %>
               <li>
                 <a href="javascript:void(0);" class="waves-effect"
                   ><i class="mdi mdi-coin"></i>
@@ -193,21 +260,41 @@
                   </span>
                 </a>
                 <ul class="submenu">
+                   <% 
+                        if( pantallas.contains("Listar Cuentas") ) {
+                   %>
                     <li>
                     <a href="http://localhost:8080/SisAlcanciaFeliz/views/Cuentas.jsp">Cuentas</a>
                   </li> 
+                  <% } %>
+                  
+                  <% 
+                        if( pantallas.contains("Listar Prestamos") ) {
+                   %>
                   <li><a href="http://localhost:8080/SisAlcanciaFeliz/views/Prestamo.jsp">Prestamos</a></li>
+                   <% } %>
+                  
+                  <% 
+                        if( pantallas.contains("Listar Rango de Tasas") ) {
+                   %>
                   <li>
                     <a href="http://localhost:8080/SisAlcanciaFeliz/views/RangoTasas.jsp"
                       >Tasas de prestamo</a
                     >
                   </li>
+                    <% } %>
+                    
+                    <% 
+                        if( pantallas.contains("Listar Transacciones") ) {
+                   %>
                   <li>
                     <a href="http://localhost:8080/SisAlcanciaFeliz/views/Transacciones.jsp">Transacciones</a>
                   </li> 
-                
+                     <% } %>
                 </ul>
               </li>
+              
+                <% } %>
             </ul>
           </div>
           <!-- Sidebar -->

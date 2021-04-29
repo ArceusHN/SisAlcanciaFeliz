@@ -109,21 +109,34 @@ public class AuthorizationFilter implements Filter {
         
         String accion = request.getParameter("accion");
         
-        if(req.getRequestURI().endsWith("AccessController") ) chain.doFilter(request, response);
         
-        if(session.getAttribute("CURRENT USER") == null && !req.getRequestURI().endsWith("Access/Login.jsp")){
-            httpResponse.sendRedirect(req.getContextPath() + "/Access/Login.jsp");            
-        }
-        else if(accion != null && usu.getRol_Id() != 1 ){
-            String pantallas = (String) session.getAttribute("Pantallas");
+      
+        
+        if(req.getRequestURI().contains("Controller")){
+        
+            if(req.getRequestURI().endsWith("AccessController") ) chain.doFilter(request, response);
+        
+              if(session.getAttribute("CURRENT USER") == null && !req.getRequestURI().endsWith("Access/Login.jsp")){
+                httpResponse.sendRedirect(req.getContextPath() + "/Access/Login.jsp");            
+            }
             
-            if(pantallas.contains(accion)) chain.doFilter(request, response);
-            else httpResponse.sendRedirect(req.getContextPath() + "/views/Sinacceso.jsp");
+            else if(accion != null && usu.getRol_Id() != 1 ){
+                String pantallas = (String) session.getAttribute("Pantallas");
+            
+                if(pantallas.contains(accion)) chain.doFilter(request, response);
+                else httpResponse.sendRedirect(req.getContextPath() + "/views/Sinacceso.jsp");
+            }
+            else{
+                chain.doFilter(request, response);
+            }   
         }
         else{
             chain.doFilter(request, response);
         }
-        }
+        
+   }
+        
+       
 
     /**
      * Return the filter configuration object for this filter.

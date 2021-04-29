@@ -9,10 +9,12 @@
 <%@page import="modelDAO.EmpleadosDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:include page="./shared/header.jsp"></jsp:include>
+<jsp:include page="../shared/header.jsp"></jsp:include>
      
 <h2>Empleados</h2>
         
+<a href="EmpleadoController?accion=Crear Empleados" class="btn btn-success m-b-10">Crear Empleado</a>
+
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -42,7 +44,7 @@
             <tbody>
                 <tr>
                     <td><%=emp.getEmp_Identidad()%></td>                    
-                    <td><%=emp.getEmp_Foto()%></td>                                      
+                    <td><img src="<%=emp.getEmp_Foto()%>" width="100px" height="100px"></td>                                      
                     <td><%=emp.getEmp_Nombre()%></td>
                     <td><%=emp.getEmp_FechaNac()%></td>
                     <td><%=emp.getEmp_FechaIngreso()%></td>
@@ -52,14 +54,14 @@
                     <td><%=emp.getEmp_Cargo()%></td>
                     <td><%=emp.getSucursal()%></td>
                     <td class="d-flex" >
-                            <button class="btn btn-primary">Editar</button>&nbsp;
-                        <button class="btn btn-danger">Eliminar</button>
+                        <a href="EmpleadoController?accion=Modificar Empleados&id=<%=emp.getEmp_Id()%>" class="btn btn-primary" >Editar</a>;
+                            <button  class="btn btn-danger" >Eliminar</button>
                             
                         </td>
 
                 </tr>
-                <%} %>
+                <% } %>
             </tbody>
         </table>
-<jsp:include page="./shared/footer.jsp"></jsp:include>
+<jsp:include page="../shared/footer.jsp"></jsp:include>
 

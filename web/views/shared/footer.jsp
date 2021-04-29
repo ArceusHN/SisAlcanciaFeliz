@@ -32,16 +32,12 @@
     </div>
     <!-- END wrapper -->
 
-    <!-- jQuery  -->
-    <script src="../../SisAlcanciaFeliz/assets/js/jquery.min.js"></script> 
-    
-    
-    <script src="../../SisAlcanciaFeliz/assets/js/bootstrap.bundle.min.js"></script>
-   
     <script src="../../SisAlcanciaFeliz/assets/js/metisMenu.min.js"></script>
     <script src="../../SisAlcanciaFeliz/assets/js/jquery.slimscroll.js"></script>
     <script src="../../SisAlcanciaFeliz/assets/js/waves.min.js"></script>
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    
     <script src="../../SisAlcanciaFeliz/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Peity JS -->

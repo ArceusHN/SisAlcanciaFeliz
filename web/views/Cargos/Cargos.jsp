@@ -11,10 +11,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<jsp:include page="./shared/header.jsp"></jsp:include>
+<jsp:include page="../shared/header.jsp"></jsp:include>
 
 <h2>Cargos</h2>
-    <table class="table table-bordered">
+
+<a href="CargosController?accion=Crear Cargos" type="button" class="btn btn-success m-b-10">
+    Crear</a>
+
+    <table class="table table-bordered" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th>Id</th>
@@ -49,6 +53,11 @@
         
     </table>
 
-
-<jsp:include page="./shared/footer.jsp"></jsp:include>
+            <script>
+                $(document).ready( function () {
+                 $('#datatable').DataTable();
+                   } );
+            </script>
+            
+<jsp:include page="../shared/footer.jsp"></jsp:include>
 

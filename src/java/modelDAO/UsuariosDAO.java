@@ -74,7 +74,20 @@ public class UsuariosDAO implements UsuariosCRUD {
 
     @Override
     public boolean add(Usuarios us) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql="EXEC UDP_Usuario_Insert '"+us.getUsu_Usuario()+"','"+us.getUsu_Contra()+"','"+us.getRol_Id()+"'";
+        try
+        {
+        
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch(Exception ex)
+        {
+            return false;
+        }
+        
+        return true;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

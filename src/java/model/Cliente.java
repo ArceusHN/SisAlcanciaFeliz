@@ -8,6 +8,9 @@ public class Cliente {
    int Cli_Id;
    String Cli_Identidad;
    String Cli_PrimerNombre;
+   String Cli_SegundoNombre;
+   String Cli_PrimerApellido;
+   String Cli_SegundoApellido;
    String Cli_FechaNac;
    String Cli_FechaIngreso;
    String Cli_Telefono;
@@ -147,6 +150,30 @@ public class Cliente {
 
     public void setFecha_Modifica(String Fecha_Modifica) {
         this.Fecha_Modifica = Fecha_Modifica;
+    }
+
+    public String getCli_SegundoNombre() {
+        return Cli_SegundoNombre;
+    }
+
+    public void setCli_SegundoNombre(String Cli_SegundoNombre) {
+        this.Cli_SegundoNombre = Cli_SegundoNombre;
+    }
+
+    public String getCli_PrimerApellido() {
+        return Cli_PrimerApellido;
+    }
+
+    public void setCli_PrimerApellido(String Cli_PrimerApellido) {
+        this.Cli_PrimerApellido = Cli_PrimerApellido;
+    }
+
+    public String getCli_SegundoApellido() {
+        return Cli_SegundoApellido;
+    }
+
+    public void setCli_SegundoApellido(String Cli_SegundoApellido) {
+        this.Cli_SegundoApellido = Cli_SegundoApellido;
     }
 
    

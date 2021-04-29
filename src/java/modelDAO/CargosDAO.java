@@ -67,7 +67,20 @@ public class CargosDAO implements CargosCRUD {
 
     @Override
     public boolean add(Cargo car) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String sql ="EXEC UDP_tbCargos_Insert '"+car.getCargo_Descripcion()+"', 1";
+        try
+        {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            
+            ps.executeUpdate();
+        }
+        catch(Exception e)
+        {
+        }
+        
+        return false;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
